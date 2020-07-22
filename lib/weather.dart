@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:upajVirasat/secret.dart';
 import 'dart:convert';
 import 'Models/Weatherdata.dart';
 import 'Widgets/WeatherItem.dart';
@@ -114,6 +115,7 @@ class _ShowState extends State<Show> {
     });
 
     LocationData location;
+    var api_key = keys["api_weather"];
 
     try {
       location = await _location.getLocation();
@@ -135,9 +137,9 @@ class _ShowState extends State<Show> {
       final lon = location.longitude;
 
       final weatherResponse = await http.get(
-          'https://api.openweathermap.org/data/2.5/weather?APPID=7b845d69e97ad562b2beacd190884be4&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
+          'https://api.openweathermap.org/data/2.5/weather?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
       final forecastResponse = await http.get(
-          'https://api.openweathermap.org/data/2.5/forecast?APPID=7b845d69e97ad562b2beacd190884be4&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
+          'https://api.openweathermap.org/data/2.5/forecast?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
 
       if (weatherResponse.statusCode == 200 &&
           forecastResponse.statusCode == 200) {

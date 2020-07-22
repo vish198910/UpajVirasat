@@ -11,7 +11,7 @@ class WeatherData {
     return WeatherData(
       date: new DateTime.now(),
       name: json['name'],
-      temp: json['main']['temp'],
+      temp: json['main']['temp'].toDouble(),
       main: json['weather'][0]['description'],
       icon: json['weather'][0]['icon'],
     );
