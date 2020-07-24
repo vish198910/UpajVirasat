@@ -118,13 +118,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_dialogflow:
+  flutter_sparkline:
     dependency: "direct main"
     description:
-      name: flutter_dialogflow
+      name: flutter_sparkline
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.3"
+    version: "0.1.0"
+  flutter_staggered_grid_view:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_grid_view
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -135,13 +142,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  googleapis_auth:
-    dependency: transitive
-    description:
-      name: googleapis_auth
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.12"
   http:
     dependency: "direct main"
     description:

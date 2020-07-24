@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
 
     _auth.verifyPhoneNumber(
         phoneNumber: phone,
-        timeout: Duration(seconds: 60),
+        timeout: Duration(seconds: 5),
         verificationCompleted: (AuthCredential credential) async{
           Navigator.of(context).pop();
 
@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
 
           if(user != null){
             Navigator.push(context, MaterialPageRoute(
-              builder: (context) => Dashboard(user: user,)
+              builder: (context) => MainPage(user: user,)
             ));
           }else{
             print("Error");
@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
           //This callback would gets called when verification is done auto maticlly
         },
         verificationFailed: (AuthException exception){
-          print(exception);
+          print( " hello " + exception.toString());
         },
         codeSent: (String verificationId, [int forceResendingToken]){
           showDialog(
@@ -62,7 +62,7 @@ class LoginScreen extends StatelessWidget {
 
                       if(user != null){
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Dashboard(user: user,)
+                            builder: (context) => MainPage(user: user)
                         ));
                       }else{
                         print("Error");

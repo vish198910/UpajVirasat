@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:upajVirasat/Screens/dashboard.dart';
+
 import 'package:upajVirasat/Screens/welcome.dart';
 
 void main() => runApp(new MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       debugShowCheckedModeBanner: false,
-     home: new Welcome(),
+     home: new MainPage(),
     );
   }
 }
