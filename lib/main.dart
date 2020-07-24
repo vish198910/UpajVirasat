@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:upajVirasat/HomePageDialogFlow.dart';
+import 'package:upajVirasat/Screens/welcome.dart';
 
 void main() => runApp(new MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       debugShowCheckedModeBanner: false,
-      home: new HomePageDialogflow(),
+     home: new Welcome(),
     );
   }
 }
