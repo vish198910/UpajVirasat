@@ -13,6 +13,7 @@ class WeatherScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Weather',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -45,16 +46,6 @@ class _ShowState extends State<Show> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey,
-        appBar: AppBar(
-          leading: FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back),
-          ),
-          title: Center(child: Text("Weather")),
-          actions: <Widget>[Icon(Icons.more_vert)],
-        ),
         body: Center(
             child: Container(
           decoration: BoxDecoration(

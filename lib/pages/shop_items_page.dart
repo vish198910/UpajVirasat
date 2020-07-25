@@ -55,7 +55,7 @@ class _ShopItemsPageState extends State<ShopItemsPage>
             child: Material
             (
               elevation: 8.0,
-              color: Colors.black,
+              color: Color(0xFFEEFFE0),
               borderRadius: BorderRadius.circular(32.0),
               child: InkWell
               (
@@ -70,9 +70,9 @@ class _ShopItemsPageState extends State<ShopItemsPage>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>
                     [
-                      Icon(Icons.add, color: Colors.white),
+                      Icon(Icons.add, color: Colors.black),
                       Padding(padding: EdgeInsets.only(right: 16.0)),
-                      Text('ADD A ITEM', style: TextStyle(color: Colors.white))
+                      Text('ADD A ITEM', style: TextStyle(color: Colors.black))
                     ],
                   ),
                 ),
@@ -80,8 +80,6 @@ class _ShopItemsPageState extends State<ShopItemsPage>
             )
           ),
           ShopItem(),
-          BadShopItem(),
-          NewShopItem()
         ],
       )
     );
@@ -141,15 +139,15 @@ class ShopItem extends StatelessWidget
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>
                                 [
-                                  Text('Nike Jordan III', style: TextStyle(color: Colors.blueAccent)),
+                                  Text('Wheat seeds', style: TextStyle(color: Colors.blueAccent)),
                                   Row
                                   (
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: <Widget>
                                     [
-                                      Text('4.6', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 34.0)),
-                                      Icon(Icons.star, color: Colors.black, size: 24.0),
+                                      Text('₹10 kg', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 34.0)),
+                                      
                                     ],
                                   ),
                                 ],
@@ -177,8 +175,8 @@ class ShopItem extends StatelessWidget
                                       color: Colors.green,
                                       child: Padding
                                       (
-                                        padding: EdgeInsets.all(4.0),
-                                        child: Text('\$ 13K', style: TextStyle(color: Colors.white)),
+                                        padding: EdgeInsets.all(2.0),
+                                        child: Text('\$13K', style: TextStyle(color: Colors.white)),
                                       ),
                                     ),
                                   ),
@@ -196,7 +194,7 @@ class ShopItem extends StatelessWidget
                     alignment: Alignment.topRight,
                     child: Padding
                     (
-                      padding: EdgeInsets.only(right: 16.0),
+                      padding: EdgeInsets.only(right: 10.0),
                       child: SizedBox.fromSize
                       (
                         size: Size.fromRadius(54.0),
@@ -205,7 +203,7 @@ class ShopItem extends StatelessWidget
                           elevation: 20.0,
                           shadowColor: Color(0x802196F3),
                           shape: CircleBorder(),
-                          child: Image.asset('images/shoes1.png'),
+                          child: Image.asset('images/drib2.png',height: 5,),
                         ),
                       ),
                     ),
@@ -249,8 +247,8 @@ class ShopItem extends StatelessWidget
                       backgroundColor: Colors.purple,
                       child: Text('AI'),
                     ),
-                    title: Text('Ivascu Adrian ★★★★★', style: TextStyle()),
-                    subtitle: Text('The shoes were shipped one day before the shipping date, but this wasn\'t at all a problem :). The shoes are very comfortable and good looking', maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle()),
+                    title: Text('Surajmal ★★★★★', style: TextStyle()),
+                    subtitle: Text('The seeds were shipped one day before the shipping date.', maxLines: 2, overflow: TextOverflow.ellipsis, style: TextStyle()),
                   ),
                 ),
               ),

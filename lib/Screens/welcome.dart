@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:upajVirasat/Screens/sign_in.dart';
-import 'package:upajVirasat/Screens/sign_up.dart';
+import 'package:upajVirasat/authentication/login_page.dart';
 import 'package:upajVirasat/styles/style.dart';
 
 class Welcome extends StatelessWidget {
@@ -73,13 +73,13 @@ class Welcome extends StatelessWidget {
 
   void signUp(context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return SignUp();
+      return LoginScreen();
     }));
   }
 
   void signIn(context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LoginScreen();
+      return LoginPage();
     }));
   }
 }

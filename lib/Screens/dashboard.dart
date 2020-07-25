@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:upajVirasat/Screens/weather.dart';
 import 'package:upajVirasat/pages/shop_items_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -232,13 +233,13 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 10.0,
           backgroundColor: Colors.white,
           title: Text('Dashboard',
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
-                  fontSize: 30.0)),
+                  fontSize: 20.0)),
         ),
         body: StaggeredGridView.count(
           crossAxisCount: 2,
@@ -328,6 +329,7 @@ class _MainPageState extends State<MainPage> {
                       Text('Next Week', style: TextStyle(color: Colors.black45)),
                     ]),
               ),
+              onTap: () => checkWeather(context),
             ),
             _buildTile(
               Padding(
@@ -344,13 +346,13 @@ class _MainPageState extends State<MainPage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('Revenue',
+                              Text('Data',
                                   style: TextStyle(color: Colors.green)),
-                              Text('\$16K',
+                              Text('Crop Yield',
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w700,
-                                      fontSize: 34.0)),
+                                      fontSize: 30.0)),
                             ],
                           ),
                           DropdownButton(
@@ -381,6 +383,7 @@ class _MainPageState extends State<MainPage> {
                       )
                     ],
                   )),
+
             ),
             _buildTile(
               Padding(
@@ -431,7 +434,8 @@ class _MainPageState extends State<MainPage> {
     return Material(
         elevation: 14.0,
         borderRadius: BorderRadius.circular(12.0),
-        shadowColor: Color(0x802196F3),
+        shadowColor: Colors.white,
+        color: Colors.white,
         child: InkWell(
             // Do onTap() if it isn't null, otherwise do print()
             onTap: onTap != null
@@ -441,4 +445,12 @@ class _MainPageState extends State<MainPage> {
                   },
             child: child));
   }
+
+  void checkWeather(context){
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return WeatherScreen();
+    }));
+  }
+
+
 }
