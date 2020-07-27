@@ -45,7 +45,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
       body: Container(
         color: Colors.white,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(10,20,10,1),
+          padding: const EdgeInsets.fromLTRB(10, 20, 10, 1),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -91,8 +91,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text(
                                         '$i',
@@ -131,14 +130,17 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                 children: <Widget>[
                   Image.asset(
                     "images/drib2.png",
-                    height: MediaQuery.of(context).size.height/3,
+                    height: MediaQuery.of(context).size.height / 3,
                   ),
                   Container(
                     color: Colors.transparent,
                     child: ButtonTheme(
                       minWidth: 200,
                       height: 50,
+                      
                       child: RaisedButton(
+                      
+                        elevation: 10,
                         onPressed: () {
                           print(answer3Controller.text);
                           createLand(
@@ -151,9 +153,13 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                         },
                         color: welcomeTheme["darkColor"],
                         shape: RoundedRectangleBorder(
+                          side: BorderSide(color:Colors.lightGreenAccent,width: 1,),
                           borderRadius: BorderRadius.circular(30.0),
                         ),
-                        child: Text("Submit"),
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -197,7 +203,5 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
       print('error: $error');
       return null;
     });
-
-    
   }
 }
