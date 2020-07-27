@@ -43,7 +43,7 @@ class Welcome extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: Text("SignUp"),
+                    child: Text("Mobile Sign In "),
                   ),
                 ),
                 SizedBox(
@@ -59,7 +59,7 @@ class Welcome extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: Text("SignIn"),
+                    child: Text("Google Sign In"),
                   ),
                 ),
               ])

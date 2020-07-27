@@ -45,14 +45,14 @@ class _ShowState extends State<Show> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         body: Center(
             child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
-                  colors: [Colors.lightBlue, Colors.lightGreen])),
+                  colors: [Colors.lightBlue,Color(0xFFEEFFE0),Colors.lightGreen])),
           child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
             Expanded(
                 child: Column(
@@ -78,7 +78,7 @@ class _ShowState extends State<Show> {
                             icon: new Icon(Icons.refresh),
                             tooltip: 'Refresh',
                             onPressed: loadWeather,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                   )
                 ])),

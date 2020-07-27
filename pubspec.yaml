@@ -38,6 +38,8 @@ dependencies:
   
   flutter_sparkline: 
   flutter_staggered_grid_view: 
+  carousel_slider: ^2.2.1
+  cloud_firestore: ^0.13.7
 
 dev_dependencies:
   flutter_test:

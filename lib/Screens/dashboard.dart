@@ -2,12 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:upajVirasat/Screens/form.dart';
 import 'package:upajVirasat/Screens/weather.dart';
 import 'package:upajVirasat/pages/shop_items_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({this.user});
-  final FirebaseUser user;
+  final String user;
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -232,14 +233,24 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
           elevation: 10.0,
           backgroundColor: Colors.white,
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.settings,color: Colors.black,),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.shopping_cart,color: Colors.black,),
+            )
+          ],
           title: Text('Dashboard',
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
                   fontSize: 20.0)),
+
         ),
         body: StaggeredGridView.count(
           crossAxisCount: 2,
@@ -260,7 +271,7 @@ class _MainPageState extends State<MainPage> {
                         children: <Widget>[
                           Text('How may I help you?',
                               style: TextStyle(color: Colors.blueAccent)),
-                          Text('Ram Balwan',
+                          Text(widget.user,
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w700,
@@ -278,6 +289,13 @@ class _MainPageState extends State<MainPage> {
                           )))
                     ]),
               ),
+              onTap: () => {
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return DataCollectionForm();
+                }))
+
+              
+              }
             ),
             _buildTile(
               Padding(
@@ -389,20 +407,18 @@ class _MainPageState extends State<MainPage> {
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('Shop Items',
-                              style: TextStyle(color: Colors.redAccent)),
-                          Text('173',
+                          Text('Farm Data',
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 30.0))
+                                  fontSize: 25.0))
                         ],
                       ),
                       Material(
@@ -411,8 +427,8 @@ class _MainPageState extends State<MainPage> {
                           child: Center(
                               child: Padding(
                             padding: EdgeInsets.all(16.0),
-                            child: Icon(Icons.store,
-                                color: Colors.white, size: 30.0),
+                            child: Icon(Icons.timeline,
+                                color: Colors.white, size: 34.0),
                           )))
                     ]),
               ),
