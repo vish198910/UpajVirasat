@@ -14,7 +14,11 @@ class DataCollectionForm extends StatefulWidget {
 class _DataCollectionFormState extends State<DataCollectionForm> {
   List<String> questions = [
     "What is your name?",
-    "What is the address of your Farm?",
+    "Aadhar Number",
+    "Mobile Number",
+    "Village Name",
+    "District Name",
+    "State Name",
     "Which crop was sown here before the last harvest?",
     "Which crop you are  growing in this period?",
     "Which crop you are planning to grow in the after the next harvest?",
@@ -22,7 +26,11 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
   ];
 
   String name = "";
-  String address = "";
+  String aadharNumber = "";
+  String mobileNumber = "";
+  String villageName = "";
+  String districtName = "";
+  String stateName = "";
   String lastCropName = "";
   String currentCropName = "";
   String nextCropName = "";
@@ -34,6 +42,10 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
   TextEditingController answer4Controller = new TextEditingController();
   TextEditingController answer5Controller = new TextEditingController();
   TextEditingController answer6Controller = new TextEditingController();
+  TextEditingController answer7Controller = new TextEditingController();
+  TextEditingController answer8Controller = new TextEditingController();
+  TextEditingController answer9Controller = new TextEditingController();
+  TextEditingController answer10Controller = new TextEditingController();
 
   CollectionReference usersCollectionReference = db.collection("users");
 
@@ -110,7 +122,16 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                                             ? answer5Controller
                                                             : index == 5
                                                                 ? answer6Controller
-                                                                : null,
+                                                                : index == 6
+                                                                    ? answer7Controller
+                                                                    : index == 7
+                                                                        ? answer8Controller
+                                                                        : index ==
+                                                                                8
+                                                                            ? answer9Controller
+                                                                            : index == 9
+                                                                                ? answer10Controller
+                                                                                : null,
                                         decoration: InputDecoration(
                                             hintText: "Your Answer"),
                                       )
@@ -137,23 +158,29 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                     child: ButtonTheme(
                       minWidth: 200,
                       height: 50,
-                      
                       child: RaisedButton(
-                      
                         elevation: 10,
                         onPressed: () {
                           print(answer3Controller.text);
                           createLand(
                               name: answer1Controller.text,
-                              address: answer2Controller.text,
-                              lastCropName: answer3Controller.text,
-                              currentCropName: answer4Controller.text,
-                              nextCropName: answer5Controller.text,
-                              areaOfLand: double.parse(answer6Controller.text));
+                              aadharNumber: answer2Controller.text,
+                              mobileNumber: answer3Controller.text,
+                              villageName: answer4Controller.text,
+                              districtName: answer5Controller.text,
+                              stateName: answer6Controller.text,
+                              lastCropName: answer7Controller.text,
+                              currentCropName: answer8Controller.text,
+                              nextCropName: answer9Controller.text,
+                              areaOfLand:
+                                  double.parse(answer10Controller.text));
                         },
                         color: welcomeTheme["darkColor"],
                         shape: RoundedRectangleBorder(
-                          side: BorderSide(color:Colors.lightGreenAccent,width: 1,),
+                          side: BorderSide(
+                            color: Colors.lightGreenAccent,
+                            width: 1,
+                          ),
                           borderRadius: BorderRadius.circular(30.0),
                         ),
                         child: Text(
@@ -175,6 +202,11 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
   Future<FormModel> createLand(
       {String name,
       String address,
+      String aadharNumber,
+      String mobileNumber,
+      String villageName,
+      String districtName,
+      String stateName,
       String lastCropName,
       String currentCropName,
       String nextCropName,
@@ -187,6 +219,11 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
       var dataMap = new Map<String, dynamic>();
       dataMap['name'] = name;
       dataMap['address'] = address;
+      dataMap['aadharNumber'] = aadharNumber;
+      dataMap['mobileNumber'] = mobileNumber;
+      dataMap["villageName"] = villageName;
+      dataMap["districtName"] = districtName;
+      dataMap["stateName"] = stateName;
       dataMap["lastCropName"] = lastCropName;
       dataMap["currentCropName"] = currentCropName;
       dataMap["nextCropName"] = nextCropName;

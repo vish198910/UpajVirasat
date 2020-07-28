@@ -1,17 +1,25 @@
 class FormModel{
   String name;
-  String address;
+  String aadharNumber;
+  String mobileNumber;
+  String villageName;
+  String districtName;
+  String stateName;
   String lastCropName;
   String currentCropName;
   String nextCropName;
   double areaOfLand;
 
-  FormModel({this.name,this.address,this.lastCropName,this.currentCropName,this.nextCropName,this.areaOfLand});
+  FormModel({this.name,this.aadharNumber,this.mobileNumber,this.villageName,this.districtName,this.stateName,this.lastCropName,this.currentCropName,this.nextCropName,this.areaOfLand});
 
 
   FormModel.FromJSON(Map<String,dynamic> json) {
     name= json["name"];
-    address = json["address"];
+    aadharNumber = json["aadharNumber"];
+    mobileNumber= json["mobileNumber"];
+    villageName = json["villageName"];
+    districtName = json["districtName"];
+    stateName = json["stateName"];
     lastCropName = json["lastCropName"];
     currentCropName = json["currentCropName"];
     nextCropName = json["nextCropName"];
@@ -21,7 +29,11 @@ class FormModel{
   Map<String,dynamic> toJSON(){
     return {
       "name": name,
-      "address":address,
+      "aadharNumber":aadharNumber,
+      "mobileNumber":mobileNumber,
+      "villageName":villageName,
+      "districtName":districtName,
+      "stateName":stateName,
       "lastCropName":lastCropName,
       "currentCropName":currentCropName,
       "nextCropName":nextCropName,

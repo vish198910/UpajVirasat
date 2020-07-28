@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:upajVirasat/Screens/Images.dart';
 import 'package:upajVirasat/Screens/form.dart';
 import 'package:upajVirasat/Screens/weather.dart';
 import './ShopScreens/shop_items_page.dart';
@@ -321,6 +322,11 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black45)),
                     ]),
               ),
+              onTap: () =>{
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Images();
+                }))
+              }
             ),
             _buildTile(
               Padding(
