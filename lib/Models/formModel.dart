@@ -9,8 +9,10 @@ class FormModel{
   String currentCropName;
   String nextCropName;
   double areaOfLand;
+  double grainsPerHead;
+  double headsPerM2;
 
-  FormModel({this.name,this.aadharNumber,this.mobileNumber,this.villageName,this.districtName,this.stateName,this.lastCropName,this.currentCropName,this.nextCropName,this.areaOfLand});
+  FormModel({this.name,this.aadharNumber,this.mobileNumber,this.villageName,this.districtName,this.stateName,this.lastCropName,this.currentCropName,this.nextCropName,this.areaOfLand,this.grainsPerHead,this.headsPerM2});
 
 
   FormModel.FromJSON(Map<String,dynamic> json) {
@@ -24,6 +26,8 @@ class FormModel{
     currentCropName = json["currentCropName"];
     nextCropName = json["nextCropName"];
     areaOfLand = json["areaOfLand"];
+    grainsPerHead = json["grainsPerHead"];
+    headsPerM2 = json["headsPerM2"];
   }
 
   Map<String,dynamic> toJSON(){
@@ -37,7 +41,9 @@ class FormModel{
       "lastCropName":lastCropName,
       "currentCropName":currentCropName,
       "nextCropName":nextCropName,
-      "areaOfLand":areaOfLand
+      "areaOfLand":areaOfLand,
+      "grainsPerHead" : grainsPerHead,
+      "headsPerM2" : headsPerM2
     };
   }
 }

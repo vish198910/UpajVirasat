@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:upajVirasat/Screens/FarmDataList.dart';
 import 'package:upajVirasat/Screens/Images.dart';
 import 'package:upajVirasat/Screens/form.dart';
 import 'package:upajVirasat/Screens/weather.dart';
@@ -246,7 +247,6 @@ class _MainPageState extends State<MainPage> {
                 size: 30,
               ),
             ),
-            
           ],
           title: Text('Dashboard',
               style: TextStyle(
@@ -298,36 +298,36 @@ class _MainPageState extends State<MainPage> {
                       }))
                     }),
             _buildTile(
-              Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Material(
-                          color: Colors.teal,
-                          shape: CircleBorder(),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Icon(Icons.settings_applications,
-                                color: Colors.white, size: 30.0),
-                          )),
-                      Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                      Text('General',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 24.0)),
-                      Text('Images, Videos',
-                          style: TextStyle(color: Colors.black45)),
-                    ]),
-              ),
-              onTap: () =>{
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return Images();
-                }))
-              }
-            ),
+                Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Material(
+                            color: Colors.teal,
+                            shape: CircleBorder(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Icon(Icons.settings_applications,
+                                  color: Colors.white, size: 30.0),
+                            )),
+                        Padding(padding: EdgeInsets.only(bottom: 16.0)),
+                        Text('General',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24.0)),
+                        Text('Images, Videos',
+                            style: TextStyle(color: Colors.black45)),
+                      ]),
+                ),
+                onTap: () => {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Images();
+                      }))
+                    }),
             _buildTile(
               Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -433,6 +433,14 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black45)),
                     ]),
               ),
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return FarmDataList();
+                  }),
+                ),
+              },
             ),
             _buildTile(
               Padding(
@@ -459,7 +467,7 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black45)),
                     ]),
               ),
-               onTap: () => Navigator.of(context)
+              onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => ShopItemsPage())),
             ),
           ],
