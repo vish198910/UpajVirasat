@@ -9,8 +9,9 @@ import 'package:upajVirasat/Screens/weather.dart';
 import './ShopScreens/shop_items_page.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({this.user});
+  MainPage({this.user,this.aadharNumber});
   final String user;
+  final String aadharNumber;
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -437,7 +438,7 @@ class _MainPageState extends State<MainPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return FarmDataList();
+                    return FarmDataList(aadharNumber:widget.aadharNumber);
                   }),
                 ),
               },

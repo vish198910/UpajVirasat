@@ -9,20 +9,37 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String aadharNumber;
+  TextEditingController aadharNumberController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset("images/drib2.png"),
-              SizedBox(height: 50),
-              _signInButton(),
-            ],
+      body: SingleChildScrollView(
+              child: Container(
+          color: Colors.white,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(24.0,96,24,24),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Image.asset("images/drib2.png"),
+                  SizedBox(height: 50),
+                  TextField(
+                    controller: aadharNumberController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintText:"Enter your aadhar Number"
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(24.0),
+                    child: _signInButton(),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
@@ -30,6 +47,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _signInButton() {
+    aadharNumber = (aadharNumberController.text);
+    print(aadharNumber);
     return OutlineButton(
       splashColor: Colors.grey,
       onPressed: () {
@@ -37,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return MainPage(user: name,);
+                return MainPage(user: name, aadharNumber: aadharNumber,);
               },
             ),
           );

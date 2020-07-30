@@ -5,8 +5,8 @@ import 'package:upajVirasat/Screens/dashboard.dart';
 class LoginScreen extends StatelessWidget {
   final _phoneController = TextEditingController();
   final _codeController = TextEditingController();
-
-  Future<bool> loginUser(String phone, BuildContext context) async {
+  final _aadharNumberController = TextEditingController();
+  Future<bool> loginUser(String phone, BuildContext context,String aadharNumber) async {
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     _auth.verifyPhoneNumber(
@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
                 MaterialPageRoute(
                     builder: (context) => MainPage(
                           user: user.toString(),
+                          aadharNumber: aadharNumber,
                         )));
           } else {
             print("Error");
@@ -87,55 +88,75 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SingleChildScrollView(
+                  child: Container(
       padding: EdgeInsets.all(32),
       child: Form(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset("images/drib2.png"),
-            SizedBox(
-              height: 16,
-            ),
-            TextFormField(
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      borderSide: BorderSide(color: Colors.grey[200])),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      borderSide: BorderSide(color: Colors.grey[300])),
-                  filled: true,
-                  fillColor: Colors.grey[100],
-                  hintText: "Mobile Number"),
-              controller: _phoneController,
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              width: double.infinity,
-              child: ButtonTheme(
-                shape: RoundedRectangleBorder(
-                  borderRadius:BorderRadius.circular(30),
-                ),
-                child: FlatButton(
-                  child: Text("SIGN IN"),
-                  textColor: Colors.black,
-                  padding: EdgeInsets.all(16),
-                  onPressed: () {
-                    final phone = _phoneController.text.trim();
-
-                    loginUser(phone, context);
-                  },
-                  color: Colors.lightGreenAccent,
-                ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset("images/drib2.png"),
+              SizedBox(
+                height: 16,
               ),
-            )
-          ],
-        ),
+              TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(color: Colors.grey[200])),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(color: Colors.grey[300])),
+                    filled: true,
+                    fillColor: Colors.grey[100],
+                    hintText: "Mobile Number"),
+                controller: _phoneController,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              TextFormField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(color: Colors.grey[200])),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                        borderSide: BorderSide(color: Colors.grey[300])),
+                    filled: true,
+                    fillColor: Colors.grey[100],
+                    hintText: "Aadhar Number"),
+                controller: _aadharNumberController,
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                width: double.infinity,
+                child: ButtonTheme(
+                  shape: RoundedRectangleBorder(
+                    borderRadius:BorderRadius.circular(30),
+                  ),
+                  child: FlatButton(
+                    child: Text("SIGN IN"),
+                    textColor: Colors.black,
+                    padding: EdgeInsets.all(16),
+                    onPressed: () {
+                      final phone = _phoneController.text;
+                      final aadharNumber = _aadharNumberController.text;
+                      loginUser("+91 "+phone, context,aadharNumber);
+                    },
+                    color: Colors.lightGreenAccent,
+                  ),
+                ),
+              )
+            ],
+          ),
       ),
-    ));
+    ),
+        ));
   }
 }

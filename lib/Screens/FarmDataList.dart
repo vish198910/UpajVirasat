@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:upajVirasat/Screens/CRUD/crud.dart';
 
 // Access a Cloud Firestore instance from your Activity
 Firestore db = Firestore.instance;
 
 class FarmDataList extends StatefulWidget {
+  final String aadharNumber;
+
+  FarmDataList({Key key, this.aadharNumber});
+
   @override
   _FarmDataListState createState() => _FarmDataListState();
 }
@@ -13,21 +16,19 @@ class FarmDataList extends StatefulWidget {
 class _FarmDataListState extends State<FarmDataList> {
 // Reference to a Collection
   CollectionReference notesCollectionRef = db.collection('notes');
-
-  CrudMedthods crudObj;
   QuerySnapshot lands;
 
-  getData(int aadharNumber) async {
+  getData(String cropName, {int aadharNumber}) async {
     return await Firestore.instance
-        .collection('users')
-        .document("$aadharNumber")
-        .collection("lands")
+        .collection('Crops')
+        .document("$cropName")
+        .collection("Yield")
         .getDocuments();
   }
 
   @override
   void initState() {
-    getData(222222222222).then((results) {
+    getData("wheat").then((results) {
       setState(() {
         lands = results;
       });
@@ -53,13 +54,29 @@ class _FarmDataListState extends State<FarmDataList> {
         itemCount: lands.documents.length,
         padding: EdgeInsets.all(5.0),
         itemBuilder: (context, i) {
+          print(lands.documents[i].documentID);
+          print(widget.aadharNumber);
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: _buildTile(
-              ListTile(
-                title: Text(lands.documents[i].data['currentCropName'].toString().toUpperCase(),style: TextStyle(fontWeight:FontWeight.bold),),
-                subtitle: Text("Current Crop Name : Land ${i+1}"),
-              ),
+              lands.documents[i].documentID == widget.aadharNumber ? ListTile(
+                title: lands.documents[i].documentID == widget.aadharNumber
+                    ? Text(
+                        lands.documents[i].data['yield']
+                            .toString()
+                            .toUpperCase(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ): Text(
+                        "Check Your Aadhar Number",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text("Current Crop Name : Land ${i + 1}"),
+              ) : Center(),
+              
             ),
           );
         },

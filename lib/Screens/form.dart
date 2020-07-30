@@ -157,9 +157,12 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                     alignment: Alignment.lerp(
                         Alignment.topCenter, Alignment.bottomCenter, 0.30),
                     children: <Widget>[
-                      Image.asset(
-                        "images/drib2.png",
-                        height: MediaQuery.of(context).size.height / 3,
+                      Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: Image.asset(
+                          "images/drib2.png",
+                          height: MediaQuery.of(context).size.height / 3,
+                        ),
                       ),
                       Container(
                         color: Colors.transparent,
@@ -239,7 +242,6 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
 
   Future<FormModel> createLand(
       {String name,
-      String address,
       String aadharNumber,
       String mobileNumber,
       String villageName,
@@ -262,7 +264,6 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
 
       var dataMap = new Map<String, dynamic>();
       dataMap['name'] = name;
-      dataMap['address'] = address;
       dataMap['aadharNumber'] = aadharNumber;
       dataMap['mobileNumber'] = mobileNumber;
       dataMap["villageName"] = villageName;

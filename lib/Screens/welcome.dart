@@ -1,12 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:upajVirasat/Screens/sign_in.dart';
 import 'package:upajVirasat/authentication/login_page.dart';
+import 'package:upajVirasat/localizations/application.dart';
+import 'package:upajVirasat/localizations/app_translations.dart';
 import 'package:upajVirasat/styles/style.dart';
 
-class Welcome extends StatelessWidget {
+
+class Welcome extends StatefulWidget {
+  @override
+  _WelcomeState createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  static final List<String> languagesList = application.supportedLanguages;
+  static final List<String> languageCodesList =
+      application.supportedLanguagesCodes;
+
+  final Map<dynamic, dynamic> languagesMap = {
+    languagesList[0]: languageCodesList[0],
+    languagesList[1]: languageCodesList[1],
+  };
+
+  String label = languagesList[0];
+
+  @override
+  void initState() {
+    super.initState();
+    application.onLocaleChanged = onLocaleChange;
+    onLocaleChange(Locale(languagesMap["Hindi"]));
+  }
+
+  void onLocaleChange(Locale locale) async {
+    setState(() {
+      AppTranslations.load(locale);
+    });
+  }
+   void _select(String language) {
+    print("dd "+language);
+    onLocaleChange(Locale(languagesMap[language]));
+    setState(() {
+      if (language == "Hindi") {
+        label = "हिंदी";
+      } else {
+        label = language;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+            PopupMenuButton<String>(
+              // overflow menu
+              onSelected: _select,
+              icon: Padding(
+                padding: const EdgeInsets.fromLTRB(4.0,8,24,20),
+                child: new Icon(Icons.language, color: Colors.black),
+              ),
+              itemBuilder: (BuildContext context) {
+                return languagesList
+                    .map<PopupMenuItem<String>>((String choice) {
+                  return PopupMenuItem<String>(
+                    value: choice,
+                    child: Text(choice),
+                  );
+                }).toList();
+              },
+            ),
+          ],
+      ),
+
       body: Container(
         color: Colors.white,
           child: Center(
@@ -20,13 +86,13 @@ class Welcome extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    "Welcome",
+                    "${AppTranslations.of(context).text("welcome1")}",
                     style: TextStyle(fontSize: 50),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20,8,20,8),
                     child: Text(
-                      "Login to continue and if not a member then Sign-up to register",
+                      "${AppTranslations.of(context).text("welcome2")}",
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -43,7 +109,7 @@ class Welcome extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: Text("Mobile Sign In "),
+                    child: Text("${AppTranslations.of(context).text("MLogin")}"),
                   ),
                 ),
                 SizedBox(
@@ -59,7 +125,7 @@ class Welcome extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    child: Text("Google Sign In"),
+                    child: Text("${AppTranslations.of(context).text("GLogin")}"),
                   ),
                 ),
               ])
