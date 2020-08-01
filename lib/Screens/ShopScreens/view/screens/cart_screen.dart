@@ -1,8 +1,8 @@
-import 'package:firebase_shop_app/core/providers/cart_provider.dart';
-import 'package:firebase_shop_app/core/providers/orders_provider.dart';
-import 'package:firebase_shop_app/view/widgets/cart_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/cart_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/orders_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/widgets/cart_item_widget.dart';
 
 class CartScreen extends StatelessWidget {
   @override

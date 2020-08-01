@@ -1,5 +1,5 @@
-import 'package:firebase_shop_app/core/models/cart_item.dart';
 import 'package:flutter/foundation.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/models/cart_item.dart';
 
 class CartProvider with ChangeNotifier {
   // Every cardItem have unique id not the id of product

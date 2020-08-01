@@ -1,12 +1,9 @@
-import 'package:firebase_shop_app/utils/view/constant_routs.dart';
-import 'package:firebase_shop_app/view/screens/cart_screen.dart';
-import 'package:firebase_shop_app/view/screens/favourite_screen.dart';
-import 'package:firebase_shop_app/view/screens/more_screen.dart';
-import 'package:firebase_shop_app/view/screens/orders_screen.dart';
-import 'package:firebase_shop_app/view/screens/products_overview_screen.dart';
-import 'package:firebase_shop_app/view/screens/un_defined_screen.dart';
-import 'package:firebase_shop_app/view/shared/custom_bottomAppBar.dart';
 import 'package:flutter/material.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/favourite_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/more_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/orders_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/products_overview_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/shared/custom_bottomAppBar.dart';
 
 class SharedBottomAppBar extends StatefulWidget {
   @override

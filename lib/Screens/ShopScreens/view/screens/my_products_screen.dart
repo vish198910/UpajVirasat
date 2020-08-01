@@ -1,8 +1,8 @@
-import 'package:firebase_shop_app/core/providers/product_model_provider.dart';
-import 'package:firebase_shop_app/core/providers/products_provider.dart';
-import 'package:firebase_shop_app/utils/view/constant_routs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/product_model_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/products_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/constant_routs.dart';
 
 class MyProductsScreen extends StatelessWidget {
   @override

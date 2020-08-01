@@ -1,4 +1,3 @@
-import 'package:firebase_shop_app/view/widgets/bottom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class UndefinedScreen extends StatelessWidget {

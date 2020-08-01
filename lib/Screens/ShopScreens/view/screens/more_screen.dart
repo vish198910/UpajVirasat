@@ -1,5 +1,5 @@
-import 'package:firebase_shop_app/utils/view/constant_routs.dart';
 import 'package:flutter/material.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/constant_routs.dart';
 
 class MoreScreen extends StatelessWidget {
   @override

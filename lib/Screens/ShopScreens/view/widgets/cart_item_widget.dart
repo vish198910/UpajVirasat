@@ -1,6 +1,6 @@
-import 'package:firebase_shop_app/core/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/cart_provider.dart';
 
 class CartItemWidget extends StatelessWidget {
   final String itemId;

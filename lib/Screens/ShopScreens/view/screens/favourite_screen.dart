@@ -1,9 +1,9 @@
-import 'package:firebase_shop_app/core/providers/cart_provider.dart';
-import 'package:firebase_shop_app/utils/view/constant_routs.dart';
-import 'package:firebase_shop_app/view/shared/badge.dart';
-import 'package:firebase_shop_app/view/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/cart_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/constant_routs.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/shared/badge.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/widgets/products_grid.dart';
 
 class FavouriteScreen extends StatelessWidget {
   final _showFavouriteOnly = true;

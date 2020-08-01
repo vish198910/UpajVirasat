@@ -1,7 +1,7 @@
-import 'package:firebase_shop_app/core/providers/products_provider.dart';
-import 'package:firebase_shop_app/view/widgets/poroduct_grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/products_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/widgets/poroduct_grid_item.dart';
 
 class ProductsGrid extends StatelessWidget {
   final showFavorites;

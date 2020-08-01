@@ -22,9 +22,7 @@ class _MainPageState extends State<MainPage> {
   QuerySnapshot lands;
 
   getData({int aadharNumber}) async {
-    return await db
-        .collection('Crops')
-        .getDocuments();
+    return await db.collection('Crops').getDocuments();
   }
 
   @override
@@ -319,36 +317,39 @@ class _MainPageState extends State<MainPage> {
                       }))
                     }),
             _buildTile(
-                Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Material(
-                            color: Colors.teal,
-                            shape: CircleBorder(),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Icon(Icons.settings_applications,
-                                  color: Colors.white, size: 30.0),
-                            )),
-                        Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                        Text('General',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 24.0)),
-                        Text('Images, Videos',
-                            style: TextStyle(color: Colors.black45)),
-                      ]),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Material(
+                          color: Colors.blue,
+                          shape: CircleBorder(),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Icon(Icons.equalizer,
+                                color: Colors.white, size: 30.0),
+                          )),
+                      Padding(padding: EdgeInsets.only(bottom: 16.0)),
+                      Text('Farm Data',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 24.0)),
+                      Text("Keep an eye on Farms",
+                          style: TextStyle(color: Colors.black45)),
+                    ]),
+              ),
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return FarmDataList(aadharNumber: widget.aadharNumber);
+                  }),
                 ),
-                onTap: () => {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return Images();
-                      }))
-                    }),
+              },
+            ),
             _buildTile(
               Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -430,39 +431,31 @@ class _MainPageState extends State<MainPage> {
                   )),
             ),
             _buildTile(
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Material(
-                          color: Colors.blue,
-                          shape: CircleBorder(),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Icon(Icons.equalizer,
-                                color: Colors.white, size: 30.0),
-                          )),
-                      Padding(padding: EdgeInsets.only(bottom: 16.0)),
-                      Text('Farm Data',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 24.0)),
-                      Text("Keep an eye on Farms",
-                          style: TextStyle(color: Colors.black45)),
-                    ]),
-              ),
-              onTap: () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) {
-                    return FarmDataList(aadharNumber: widget.aadharNumber);
-                  }),
-                ),
-              },
-            ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Material(
+                            color: Colors.teal,
+                            shape: CircleBorder(),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.attach_money,
+                                  color: Colors.white, size: 30.0),
+                            )),
+                        Padding(padding: EdgeInsets.only(bottom: 8.0)),
+                        Text('Compensation',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20.0)),
+                        Text("Request Compensation",
+                            style:
+                                TextStyle(color: Colors.black45, fontSize: 16)),
+                      ]),
+                ), ),
             _buildTile(
               Padding(
                 padding: const EdgeInsets.all(16.0),

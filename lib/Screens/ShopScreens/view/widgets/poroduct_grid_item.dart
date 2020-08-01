@@ -1,10 +1,9 @@
-import 'package:firebase_shop_app/core/providers/cart_provider.dart';
-import 'package:firebase_shop_app/core/providers/product_model_provider.dart';
-import 'package:firebase_shop_app/utils/view/constant_routs.dart';
-import 'package:firebase_shop_app/utils/view/screen_args/product_details_args.dart';
-import 'package:firebase_shop_app/view/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/cart_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/product_model_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/constant_routs.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/screen_args/product_details_args.dart';
 
 class ProductGridItem extends StatelessWidget {
   final index;

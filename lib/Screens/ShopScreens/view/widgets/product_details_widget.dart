@@ -1,7 +1,7 @@
-import 'package:firebase_shop_app/core/providers/cart_provider.dart';
-import 'package:firebase_shop_app/core/providers/product_model_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/cart_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/product_model_provider.dart';
 
 class ProductDetailsWidget extends StatelessWidget {
   final ProductModelProvider product;

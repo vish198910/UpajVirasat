@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:firebase_shop_app/core/providers/product_model_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/product_model_provider.dart';
 
 class ProductsProvider with ChangeNotifier {
   List<ProductModelProvider> _products = [

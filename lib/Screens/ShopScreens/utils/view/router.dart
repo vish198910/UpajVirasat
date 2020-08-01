@@ -1,9 +1,9 @@
-import 'package:firebase_shop_app/utils/view/screen_args/product_details_args.dart';
-import 'package:firebase_shop_app/view/screens/add_edit_product_screen.dart';
-import 'package:firebase_shop_app/view/screens/cart_screen.dart';
-import 'package:firebase_shop_app/view/screens/my_products_screen.dart';
-import 'package:firebase_shop_app/view/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/screen_args/product_details_args.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/add_edit_product_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/cart_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/my_products_screen.dart';
+import 'package:upajVirasat/Screens/ShopScreens/view/screens/product_details_screen.dart';
 import '../../utils/view/constant_routs.dart';
 import '../../view/screens/products_overview_screen.dart';
 import '../../view/screens/un_defined_screen.dart';

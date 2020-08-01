@@ -1,6 +1,6 @@
-import 'package:firebase_shop_app/core/models/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/models/order_item.dart';
 
 class OrderItemWidget extends StatelessWidget {
   final OrderItem order;

@@ -1,8 +1,8 @@
-import 'package:firebase_shop_app/core/providers/product_model_provider.dart';
-import 'package:firebase_shop_app/core/providers/products_provider.dart';
-import 'package:firebase_shop_app/utils/view/ui_spacing_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/product_model_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/providers/products_provider.dart';
+import 'package:upajVirasat/Screens/ShopScreens/utils/view/ui_spacing_helper.dart';
 
 class AddEditProductScreen extends StatefulWidget {
   final productId;

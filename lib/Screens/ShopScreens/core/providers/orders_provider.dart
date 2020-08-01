@@ -1,6 +1,6 @@
-import 'package:firebase_shop_app/core/models/cart_item.dart';
-import 'package:firebase_shop_app/core/models/order_item.dart';
 import 'package:flutter/foundation.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/models/cart_item.dart';
+import 'package:upajVirasat/Screens/ShopScreens/core/models/order_item.dart';
 
 class OrdersProvider with ChangeNotifier {
   List<OrderItem> _orders = [];
