@@ -1,15 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:upajVirasat/Screens/FarmDataList.dart';
-import 'package:upajVirasat/Screens/Images.dart';
+import 'package:upajVirasat/Screens/ShopScreens/Images.dart';
 import 'package:upajVirasat/Screens/form.dart';
 import 'package:upajVirasat/Screens/weather.dart';
 import './ShopScreens/shop_items_page.dart';
 
+Firestore db = Firestore.instance;
+
 class MainPage extends StatefulWidget {
-  MainPage({this.user,this.aadharNumber});
+  MainPage({this.user, this.aadharNumber});
   final String user;
   final String aadharNumber;
   @override
@@ -17,6 +19,24 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  QuerySnapshot lands;
+
+  getData({int aadharNumber}) async {
+    return await db
+        .collection('Crops')
+        .getDocuments();
+  }
+
+  @override
+  void initState() {
+    getData().then((results) {
+      setState(() {
+        lands = results;
+      });
+    });
+    super.initState();
+  }
+
   final List<List<double>> charts = [
     [
       0.0,
@@ -438,7 +458,7 @@ class _MainPageState extends State<MainPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return FarmDataList(aadharNumber:widget.aadharNumber);
+                    return FarmDataList(aadharNumber: widget.aadharNumber);
                   }),
                 ),
               },

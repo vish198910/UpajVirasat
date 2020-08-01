@@ -55,16 +55,14 @@ class _FarmDataListState extends State<FarmDataList> {
         padding: EdgeInsets.all(5.0),
         itemBuilder: (context, i) {
           print(lands.documents[i].documentID);
-          print(widget.aadharNumber);
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: _buildTile(
-              lands.documents[i].documentID == widget.aadharNumber ? ListTile(
+              lands.documents[i].documentID.trim() == widget.aadharNumber.trim() ? 
+              ListTile(
                 title: lands.documents[i].documentID == widget.aadharNumber
-                    ? Text(
-                        lands.documents[i].data['yield']
-                            .toString()
-                            .toUpperCase(),
+                    ? Text("${lands.documents[i].data['yield'].toString()
+                            .toUpperCase()}",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
