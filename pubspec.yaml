@@ -26,9 +26,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter 
 
-  location: ^3.0.0
-  http: ^0.12.2
-  intl: ^0.16.1
+  
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,15 +36,19 @@ dependencies:
   firebase_core: 
   firebase_auth: 
   google_sign_in: ^4.5.1
-  
+  location: ^3.0.0
+  http: ^0.12.2
+  intl: ^0.16.1
   flutter_sparkline: 
   flutter_staggered_grid_view: 
   carousel_slider: ^2.2.1
   cloud_firestore: ^0.13.7
   firebase_storage: ^3.1.6
   image_picker: 
- 
+  connectivity: ^0.4.9
+  provider: ^4.3.1
   rflutter_alert: ^1.0.3
+  shared_preferences: ^0.5.8
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +66,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/credentials.json
+    - assets/fonts/
     - images/
     - lang/en.json
     - lang/hi.json
