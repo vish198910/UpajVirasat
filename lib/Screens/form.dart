@@ -6,7 +6,6 @@ import 'package:upajVirasat/styles/style.dart';
 import '../Math/analysis.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-
 Firestore db = Firestore.instance;
 
 class DataCollectionForm extends StatefulWidget {
@@ -29,7 +28,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
     "What is the number of grains per head of your current crop?",
     "What is number of the heads per metre square of your current crop?"
   ];
-  
+
   TextEditingController answer1Controller = new TextEditingController();
   TextEditingController answer2Controller = new TextEditingController();
   TextEditingController answer3Controller = new TextEditingController();
@@ -76,7 +75,8 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                 child: Container(
                                     height: MediaQuery.of(context).size.height,
                                     width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 5.0),
                                     decoration: BoxDecoration(
                                         color: Color(0xFFEEFFE0),
                                         borderRadius: BorderRadius.circular(30),
@@ -101,7 +101,8 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: <Widget>[
                                           Text(
                                             '$i',
@@ -109,12 +110,12 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                           ),
                                           TextField(
                                             keyboardType: index == 9
-                                              ? TextInputType.number
-                                              : index == 2
-                                                  ? TextInputType.phone
-                                                  : index == 1
-                                                      ? TextInputType.number
-                                                      : TextInputType.text,
+                                                ? TextInputType.number
+                                                : index == 2
+                                                    ? TextInputType.phone
+                                                    : index == 1
+                                                        ? TextInputType.number
+                                                        : TextInputType.text,
                                             controller: index == 0
                                                 ? answer1Controller
                                                 : index == 1
@@ -129,18 +130,12 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                                                     ? answer6Controller
                                                                     : index == 6
                                                                         ? answer7Controller
-                                                                        : index == 7
+                                                                        : index ==
+                                                                                7
                                                                             ? answer8Controller
-                                                                            : index ==
-                                                                                    8
+                                                                            : index == 8
                                                                                 ? answer9Controller
-                                                                                : index == 9
-                                                                                    ? answer10Controller
-                                                                                    : index == 10
-                                                                                      ? answer11Controller
-                                                                                      : index == 11
-                                                                                        ? answer12Controller
-                                                                                        : null,
+                                                                                : index == 9 ? answer10Controller : index == 10 ? answer11Controller : index == 11 ? answer12Controller : null,
                                             decoration: InputDecoration(
                                                 hintText: "Your Answer"),
                                           )
@@ -172,7 +167,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                           height: 50,
                           child: RaisedButton(
                             elevation: 10,
-                            onPressed: () async{
+                            onPressed: () async {
                               print(answer1Controller.text);
                               print(answer2Controller.text);
                               print(answer3Controller.text);
@@ -185,12 +180,33 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                               print(answer10Controller.text);
                               print(answer11Controller.text);
                               print(answer12Controller.text);
-                              if(answer1Controller.text == "" || answer2Controller.text == "" || answer3Controller.text == "" || answer4Controller.text == "" || answer5Controller.text == "" || answer6Controller.text == "" || answer7Controller.text == "" || answer8Controller.text == "" || answer9Controller.text == "" || answer10Controller.text == "" || answer11Controller.text == "" || answer12Controller.text == ""){
-                                Alert(context: context, title: "Incomplete Details", desc: "Fill all the details").show();
+                              if (answer1Controller.text == "" ||
+                                  answer2Controller.text == "" ||
+                                  answer3Controller.text == "" ||
+                                  answer4Controller.text == "" ||
+                                  answer5Controller.text == "" ||
+                                  answer6Controller.text == "" ||
+                                  answer7Controller.text == "" ||
+                                  answer8Controller.text == "" ||
+                                  answer9Controller.text == "" ||
+                                  answer10Controller.text == "" ||
+                                  answer11Controller.text == "" ||
+                                  answer12Controller.text == "") {
+                                Alert(
+                                        context: context,
+                                        title: "Incomplete Details",
+                                        desc: "Fill all the details")
+                                    .show();
                                 print("In If");
-                              }else{
+                              } else {
                                 print("In hulalala");
-                                await Analysis(cropName: answer8Controller.text, grainsPerHead: double.parse(answer11Controller.text), headsPerM2: double.parse(answer12Controller.text), aadharNumber: answer2Controller.text);
+                                await Analysis(
+                                    cropName: answer8Controller.text,
+                                    grainsPerHead:
+                                        double.parse(answer11Controller.text),
+                                    headsPerM2:
+                                        double.parse(answer12Controller.text),
+                                    aadharNumber: answer2Controller.text);
                                 print("Database added");
 
                                 createLand(
@@ -204,23 +220,13 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                     currentCropName: answer8Controller.text,
                                     nextCropName: answer9Controller.text,
                                     areaOfLand:
-                                    double.parse(answer10Controller.text),
-
-                                    grainsPerHead: double.parse(answer11Controller.text),
-                                    headsPerM2 : double.parse(answer12Controller.text)
-
-
-                                    );
+                                        double.parse(answer10Controller.text),
+                                    grainsPerHead:
+                                        double.parse(answer11Controller.text),
+                                    headsPerM2:
+                                        double.parse(answer12Controller.text));
                                 Navigator.pop(context);
-
-
-
-
-
                               }
-
-
-
                             },
                             color: welcomeTheme["darkColor"],
                             shape: RoundedRectangleBorder(
@@ -260,9 +266,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
       String nextCropName,
       double areaOfLand,
       double grainsPerHead,
-      double headsPerM2
-  }) async {
-
+      double headsPerM2}) async {
     final TransactionHandler createTransaction = (Transaction tx) async {
       final DocumentSnapshot ds = await tx.get(db
           .collection('users')
@@ -296,7 +300,3 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
     });
   }
 }
-
-
-
-

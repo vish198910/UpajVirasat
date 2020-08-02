@@ -32,6 +32,11 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       hintText:"Enter your aadhar Number"
                     ),
+                    onChanged: (value){
+                      setState(() {
+                        aadharNumber = value;
+                      });
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.all(24.0),
