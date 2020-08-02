@@ -128,9 +128,9 @@ class _ShowState extends State<Show> {
       final lon = location.longitude;
 
       final weatherResponse = await http.get(
-          'https://api.openweathermap.org/data/2.5/weather?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
+          'https://api.openweathermap.org/data/2.5/weather?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=en&units=metric');
       final forecastResponse = await http.get(
-          'https://api.openweathermap.org/data/2.5/forecast?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=hi&units=metric');
+          'https://api.openweathermap.org/data/2.5/forecast?APPID=${api_key}&lat=${lat.toString()}&lon=${lon.toString()}&lang=en&units=metric');
 
       if (weatherResponse.statusCode == 200 &&
           forecastResponse.statusCode == 200) {
