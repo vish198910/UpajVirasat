@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -5,6 +6,10 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:path/path.dart' as Path;
 
 class Images extends StatefulWidget {
+
+  final String aadharNumber;
+
+  const Images({this.aadharNumber});
   @override
   _ImagesState createState() => _ImagesState();
 }
@@ -30,7 +35,7 @@ class _ImagesState extends State<Images> {
                 ? RaisedButton(    
                     child: Text('Choose File'),    
                     onPressed: chooseFile,    
-                    color: Colors.cyan,    
+                    color: Colors.lightGreenAccent,    
                   )    
                 : Container(),    
             _image != null    
@@ -66,10 +71,20 @@ class _ImagesState extends State<Images> {
    });    
  } 
 
+
  Future uploadFile() async {    
+   Firestore db = Firestore.instance;
+List currentCropName = [];
+    var docRef = await db.collection("users").document(widget.aadharNumber).collection("lands").getDocuments();
+
+    for (int i = 0; i < docRef.documents.length; i++) {
+      currentCropName.add(docRef.documents[i].data["currentCropName"]);
+    }
+
    StorageReference storageReference = FirebaseStorage.instance    
        .ref()    
-       .child('FarmerImages/${Path.basename(_image.path)}}');    
+       .child(currentCropName[0] != null ? '${currentCropName}/${Path.basename(_image.path)}}' : "Cropimages/${Path.basename(_image.path)}" );    
+       
    StorageUploadTask uploadTask = storageReference.putFile(_image);    
    await uploadTask.onComplete;    
    print('File Uploaded');    

@@ -7,36 +7,36 @@ class ProductsProvider with ChangeNotifier {
   List<ProductModelProvider> _products = [
     ProductModelProvider(
       id: 'p1',
-      title: 'Red Shirt',
-      description: 'A red shirt - it is pretty red!',
+      title: 'Corn',
+      description: 'Corn Seeds',
       price: 29.99,
       imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
+          'https://cdn.pixabay.com/photo/2018/09/26/21/24/sweet-corn-3705687_1280.jpg',
     ),
     ProductModelProvider(
         id: 'p2',
-        title: 'Trousers',
-        description: 'A nice pair of trousers.',
+        title: 'Wheat',
+        description: 'Wheat Seeds',
         price: 59.99,
         imageUrl:
-            'https://i.shgcdn.com/6f18c86f-f2b7-4c90-a21d-0c3cd3ff8ade/-/format/auto/-/preview/3000x3000/-/quality/lighter/'),
+            'https://cdn.pixabay.com/photo/2011/08/17/12/31/spike-8743_1280.jpg'),
     ProductModelProvider(
       id: 'p3',
-      title: 'Yellow Scarf',
-      description: 'Warm and cozy - exactly what you need for the winter.',
+      title: 'Gardenia',
+      description: 'Vermi Compost',
       price: 19.99,
       imageUrl:
-          'https://www.pngarts.com/files/3/Men-Jacket-Download-Transparent-PNG-Image.png',
+          'https://images-na.ssl-images-amazon.com/images/I/71MJYU0LYML._SL1200_.jpg',
     ),
     ProductModelProvider(
       id: 'p4',
-      title: 'A Pan',
-      description: 'Prepare any meal you want.',
+      title: 'Spray Hose Watering Pipe',
+      description: 'NEPTUNE SIMPLIFY FARMING 5 Layers High Pressure Spray Hose Watering Pipe (100 m, Orange)',
       price: 49.99,
       imageUrl:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
+          'https://images-na.ssl-images-amazon.com/images/I/817t9qfGjqL._SL1500_.jpg',
     ),
-    ProductModelProvider(
+    /* ProductModelProvider(
         id: 'p5',
         title: 'A Pan',
         description: 'Prepare any meal you want.',
@@ -50,22 +50,7 @@ class ProductsProvider with ChangeNotifier {
         price: 49.99,
         imageUrl:
             'https://toppng.com/uploads/preview/1st-in-firefighter-bear-pocket-t-black-firefighter-what-teddy-bear-clothes-fits-most-115690366871syjjukhtr.png'),
-    ProductModelProvider(
-        id: 'p7',
-        title: 'A Pan',
-        description: 'Prepare any meal you want.',
-        price: 49.99,
-        imageUrl:
-            'http://s20.favim.com/orig/2018/08/09/png-short-png-clothes-png-112664-Favim.com.jpg'),
-    ProductModelProvider(
-      id: 'p8',
-      title: 'A Pan',
-      description: 'Prepare any meal you want.',
-      price: 49.99,
-      imageUrl:
-          'https://img.favpng.com/15/5/21/1950s-dress-halterneck-clothing-polka-dot-png-favpng-CVsvfuuL83smqtH6b23jFVrLz.jpg',
-    ),
-  ];
+ */  ];
 
   // getter
   //  List<Product> get products => [..._products];

@@ -36,7 +36,7 @@ class _SharedBottomAppBarState extends State<SharedBottomAppBar> {
       body: _lastSelected,
       bottomNavigationBar: CustomBottomAppBar(
         color: Colors.grey,
-        selectedColor: Theme.of(context).accentColor,
+        selectedColor: Colors.green,
         notchedShape: CircularNotchedRectangle(),
         onTabSelected: _selectedTab,
         items: [

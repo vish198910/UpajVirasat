@@ -6,6 +6,7 @@ import 'package:upajVirasat/styles/style.dart';
 import '../Math/analysis.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
+
 Firestore db = Firestore.instance;
 
 class DataCollectionForm extends StatefulWidget {
@@ -21,12 +22,12 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
     "Village Name",
     "District Name",
     "State Name",
-    "Which crop was sown here before the last harvest?",
+    "Which crop was sown here before the present harvest?",
     "Which crop you are  growing in this period?",
-    "Which crop you are planning to grow in the after the next harvest?",
+    "Which crop are you planning to grow after the present harvest?",
     "What is the area of your land?",
-    "What is the grains per head of your current crop?",
-    "What is the heads per metre square of your current crop?"
+    "What is the number of grains per head of your current crop?",
+    "What is number of the heads per metre square of your current crop?"
   ];
   
   TextEditingController answer1Controller = new TextEditingController();
@@ -171,7 +172,7 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                           height: 50,
                           child: RaisedButton(
                             elevation: 10,
-                            onPressed: () {
+                            onPressed: () async{
                               print(answer1Controller.text);
                               print(answer2Controller.text);
                               print(answer3Controller.text);
@@ -188,7 +189,8 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
                                 Alert(context: context, title: "Incomplete Details", desc: "Fill all the details").show();
                                 print("In If");
                               }else{
-                                Analysis(cropName: answer8Controller.text, grainsPerHead: double.parse(answer11Controller.text), headsPerM2: double.parse(answer12Controller.text), aadharNumber: answer2Controller.text);
+                                print("In hulalala");
+                                await Analysis(cropName: answer8Controller.text, grainsPerHead: double.parse(answer11Controller.text), headsPerM2: double.parse(answer12Controller.text), aadharNumber: answer2Controller.text);
                                 print("Database added");
 
                                 createLand(
@@ -209,6 +211,12 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
 
 
                                     );
+                                Navigator.pop(context);
+
+
+
+
+
                               }
 
 
@@ -273,8 +281,8 @@ class _DataCollectionFormState extends State<DataCollectionForm> {
       dataMap["currentCropName"] = currentCropName;
       dataMap["nextCropName"] = nextCropName;
       dataMap["areaOfLand"] = areaOfLand;
-      //dataMap["grainsPerHead"] = grainsPerHead;
-      //dataMap["headsPerM2"] = headsPerM2;
+      dataMap["grainsPerHead"] = grainsPerHead;
+      dataMap["headsPerM2"] = headsPerM2;
       await tx.set(ds.reference, dataMap);
 
       return dataMap;
