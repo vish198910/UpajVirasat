@@ -507,7 +507,7 @@ String reqYielda = " ";
                             Text(yielda,
                                 style: TextStyle(
                                   color: Colors.green[400],
-                                  fontSize: 25.0,
+                                  fontSize: 30.0,
                                   fontWeight: FontWeight.w700,
                                 )),
                             Text('Mg/ha')
@@ -525,7 +525,7 @@ String reqYielda = " ";
                             Text(reqYielda,
                                 style: TextStyle(
                                   color: Colors.green[400],
-                                  fontSize: 25.0,
+                                  fontSize: 30.0,
                                   fontWeight: FontWeight.w700,
                                 )),
                             Text('Mg/ha')
@@ -602,7 +602,7 @@ String reqYielda = " ";
           StaggeredTile.extent(2, 110.0),
           StaggeredTile.extent(1, 180.0),
           StaggeredTile.extent(1, 180.0),
-          StaggeredTile.extent(2, 220.0),
+          StaggeredTile.extent(2, 250.0),
           StaggeredTile.extent(1, 180.0),
           StaggeredTile.extent(1, 180.0),
         ],
