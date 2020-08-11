@@ -1,1 +1,0 @@
-var keys = {"api_weather": "7b845d69e97ad562b2beacd190884be4"};
